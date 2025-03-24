@@ -14,6 +14,7 @@ final class LogSimples implements Iterable<String> {
 
     private LogSimples() {
         mensagens = new LinkedList<>();
+        instance = null;
     }
 
     public void log(String m) {
