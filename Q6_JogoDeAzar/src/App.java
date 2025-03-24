@@ -6,5 +6,8 @@ public class App {
         d20.rolar();
         System.out.println("D6: " + d6.getValor());
         System.out.println("D20: " + d20.getValor());
+        if(d20.getValor() > 15) {
+            new DadoDificil(Dado);
+        }
     }
 }
