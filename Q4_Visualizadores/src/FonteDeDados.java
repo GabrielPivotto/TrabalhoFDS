@@ -1,24 +1,34 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-public class FonteDeDados{
-    private List<Integer> lst;
+public class FonteDeDados implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private List<Integer> valores = new ArrayList<>();
 
-    public FonteDeDados(){
-        lst = new LinkedList<>();
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
     }
 
-    public void add(Integer value){
-        if (value < 0) throw new IllegalArgumentException("Valor invalido");
-        lst.add(value);
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
     }
 
-    public int quantidade(){
-        return lst.size();
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers) {
+            o.update();
+        }
     }
 
-    public List<Integer> getValores(){
-        return new ArrayList<>(lst);
+    @Override
+    public List<Integer> getValores() {
+        return valores;
+    }
+
+    public void addValor(int valor) {
+        valores.add(valor);
+        notifyObservers();
     }
 }
