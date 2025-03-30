@@ -7,6 +7,7 @@ public class App {
         Venda venda = proc.iniciarVenda();
         proc.registrarVenda(venda, produtos.get(0).getId(), 1);
         proc.registrarVenda(venda, produtos.get(1).getId(), 2);
+        proc.registrarVenda(venda, produtos.get(3).getId(), 2);
         System.out.println(proc.emitirComprovante(venda));
     }
 }
